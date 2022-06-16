@@ -3,6 +3,8 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import Notiflix from 'notiflix';
 import s from './ContactForm.module.css';
+import PropTypes from 'prop-types';
+
 
 const warningNameValidation = () =>
   Notiflix.Notify.failure(
@@ -54,3 +56,7 @@ const ContactForm = ({ onSubmit }) => {
 };
 
 export default ContactForm;
+
+ContactForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};
