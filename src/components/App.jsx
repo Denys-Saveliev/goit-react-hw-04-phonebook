@@ -41,7 +41,7 @@ function App() {
         )
       ) {
         alert(`${data.name} is already in contacts`);
-        return;
+        return prevState;
       }
       return [...prevState, { id: nanoid(), ...data }];
     });
@@ -58,7 +58,7 @@ function App() {
         <ContactForm onSubmit={formSubmitHandler} />
       </Section>
 
-      {contacts.length > 0 && (
+      {contacts && contacts.length > 0 && (
         <Section title="Contacts">
           <Filter value={filter} onSearch={handleSearchContact} />
           <ContactList
